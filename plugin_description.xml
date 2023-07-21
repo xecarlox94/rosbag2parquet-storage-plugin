@@ -1,0 +1,9 @@
+<library path="rosbag2_storage_my_storage">
+  <class
+    name="parquet_storage"
+    type="ParquetStorage"
+    base_class_type="rosbag2_storage::storage_interfaces::ReadWriteInterface"
+  >
+    <description>Rosbag2 storage plugin providing conversion to the parquet file format.</description>
+  </class>
+</library>
