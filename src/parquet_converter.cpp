@@ -3,7 +3,6 @@
 #include <rosbag2_storage/topic_metadata.hpp>
 #include <iostream>
 #include <atomic>
-#include <rclcpp/rclcpp.hpp>
 
 #include <cstdio>
 
