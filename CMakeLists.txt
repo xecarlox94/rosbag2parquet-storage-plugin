@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(rosbag2_storage REQUIRED)
+find_package(rosbag2_cpp REQUIRED)
 
 add_executable(parquet_converter src/parquet_converter.cpp)
 target_include_directories(parquet_converter PUBLIC
@@ -19,6 +20,7 @@ ament_target_dependencies(
   parquet_converter
   "pluginlib"
   "rosbag2_storage"
+  "rosbag2_cpp"
 )
 
 pluginlib_export_plugin_description_file(

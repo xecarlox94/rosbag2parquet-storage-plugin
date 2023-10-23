@@ -1,13 +1,47 @@
-#include <rosbag2_storage/storage_interfaces/read_write_interface.hpp>
-#include <rosbag2_storage/serialized_bag_message.hpp>
-#include <rosbag2_storage/topic_metadata.hpp>
-#include <iostream>
-#include <atomic>
 
-#include <cstdio>
+#include <rosbag2_cpp/readers/sequential_reader.hpp>
+#include <rosbag2_storage/storage_options.hpp>
+#include <rosbag2_cpp/converter_options.hpp>
+
+#include <iostream>
+
+
+
+
+
+int main(int argc, char ** argv)
+{
+    (void) argc;
+    (void) argv;
+
+    printf("\nhello world rosbag2_converter_parquet package\n");
+
+    rosbag2_storage::StorageOptions storage_options;
+    storage_options.uri = "test.bag";
+    //storage_options.uri = "test.bag";
+
+    rosbag2_cpp::ConverterOptions converter_options;
+    converter_options.input_serialization_format = "cdr";
+    converter_options.output_serialization_format = "cdr";
+
+    rosbag2_cpp::readers::SequentialReader reader;
+
+    reader.open(storage_options, converter_options);
+
+
+    return 0;
+}
+
+
+
 
 
 /*
+#include <cstdio>
+#include <rosbag2_storage/storage_interfaces/read_write_interface.hpp>
+#include <rosbag2_storage/serialized_bag_message.hpp>
+#include <rosbag2_storage/topic_metadata.hpp>
+#include <atomic>
 #include <rosbag2_cpp/reader.hpp>
 #include <rosbag2_cpp/storage_options.hpp>
 namespace parquet {
@@ -124,17 +158,3 @@ PLUGINLIB_EXPORT_CLASS(
     rosbag2_storage::storage_interfaces::ReadWriteInterface
 )
 */
-
-
-
-
-
-int main(int argc, char ** argv)
-{
-  (void) argc;
-  (void) argv;
-
-  printf("\nhello world rosbag2_converter_parquet package\n");
-
-  return 0;
-}
